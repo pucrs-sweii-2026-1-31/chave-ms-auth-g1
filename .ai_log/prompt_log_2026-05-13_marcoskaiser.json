@@ -1,0 +1,486 @@
+[
+  {
+    "timestamp": "2026-05-13T19:56:56.404Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "I’ll inspect the two prompt files and the current repo state first, then make the implementation match the described service rather than guessing from structure alone."
+  },
+  {
+    "timestamp": "2026-05-13T19:57:03.540Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The service directory has been reduced to a small Node project, while the broader parent worktree has many unrelated changes. I’ll stay scoped to `chave-ms-auth` and avoid touching sibling projects."
+  },
+  {
+    "timestamp": "2026-05-13T19:57:24.723Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "user",
+    "content": "Before you start, do NOT mess with the git repo, do NOT reset to an old state from old commits. Do everything from scratch."
+  },
+  {
+    "timestamp": "2026-05-13T19:57:24.724Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "user",
+    "content": "Before you start, do NOT mess with the git repo, do NOT reset to an old state from old commits. Do everything from scratch."
+  },
+  {
+    "timestamp": "2026-05-13T19:57:34.502Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Understood. I won’t reset, checkout, or restore anything from git history. I’ll build the service in the current workspace from scratch and only make explicit file edits needed for this microservice."
+  },
+  {
+    "timestamp": "2026-05-13T19:57:40.344Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "I’ve got the target spec and confirmed this repo is currently just a minimal Express prototype. Next I’m checking the remaining local config so the replacement lines up with the existing infra expectations."
+  },
+  {
+    "timestamp": "2026-05-13T19:57:40.543Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "user",
+    "content": "And only work in this directory"
+  },
+  {
+    "timestamp": "2026-05-13T19:57:50.586Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Got it. I’ll confine all reads/writes and commands to `/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1`; no git reset/checkout/restore, no sibling repo edits."
+  },
+  {
+    "timestamp": "2026-05-13T19:58:09.470Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "I’m going to replace the prototype with a conventional NestJS layout: Prisma schema/migration/seed, auth and users modules, DTO validation, guards, Swagger, tests, CI, and Docker startup. The edits are broad because the prompt requires a full service, not a patch to the Express entry point."
+  },
+  {
+    "timestamp": "2026-05-13T19:59:20.371Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The project metadata is now set up for TypeScript/NestJS, Prisma, tests, linting, Docker startup, and environment validation. I’m adding the database model and seed next, because the service behavior depends on persisted users, roles, sessions, refresh tokens, and reset tokens."
+  },
+  {
+    "timestamp": "2026-05-13T19:59:51.744Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The Prisma schema now covers all required auth-domain tables, including hashed refresh/reset tokens and session revocation fields. I’m wiring the Nest application shell and shared configuration before adding endpoint behavior."
+  },
+  {
+    "timestamp": "2026-05-13T20:00:17.910Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The Nest shell is in place with Swagger, CORS credentials, cookie parsing, validation, and validated environment config. I’m adding auth DTOs, token utilities, guards, and request typing now."
+  },
+  {
+    "timestamp": "2026-05-13T20:02:23.844Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Auth endpoints and session/token handling are now implemented, including httpOnly refresh cookies, rotation, reuse detection, reset/change password handling, logout, and introspection. I’m adding the profile and admin user-management surface next."
+  },
+  {
+    "timestamp": "2026-05-13T20:03:11.063Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The user routes now cover both authenticated self-service profile actions and admin-only RBAC operations. I’m adding focused unit tests plus PostgreSQL-backed integration tests that exercise the main auth flows described in the prompt."
+  },
+  {
+    "timestamp": "2026-05-13T20:03:53.258Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The test suite now describes the required flows, including refresh rotation, logout, reset-password revocation, admin-only protection, introspection, and reuse detection. I’m adding CI and documentation before installing dependencies and running verification."
+  },
+  {
+    "timestamp": "2026-05-13T20:04:20.214Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "CI now performs the expected real checks against PostgreSQL, builds Docker, uploads an artifact, and releases on tags. I’m installing the new dependency set so the lockfile matches the NestJS/Prisma implementation and verification can run against the actual code."
+  },
+  {
+    "timestamp": "2026-05-13T20:05:05.509Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "`npm install` is still running without output, likely resolving the expanded dependency graph. I’m letting it finish because the lockfile must match the new package manifest before build/test results are meaningful."
+  },
+  {
+    "timestamp": "2026-05-13T20:05:58.043Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "user",
+    "content": "I ran it manually, you can continue now."
+  },
+  {
+    "timestamp": "2026-05-13T20:06:09.073Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Thanks. I’ll continue from the current files in this directory and use the installed dependencies as-is, then fix whatever the actual checks expose."
+  },
+  {
+    "timestamp": "2026-05-13T20:06:12.020Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The lockfile now matches the new manifest. I’m starting with Prisma generation, then typecheck/build so structural issues surface before I spend time on runtime tests."
+  },
+  {
+    "timestamp": "2026-05-13T20:06:23.410Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Prisma generation, TypeScript typecheck, and unit tests all pass. I’m running lint and build next; after that I’ll try the integration suite if a local PostgreSQL target is available."
+  },
+  {
+    "timestamp": "2026-05-13T20:06:28.172Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Build passes; lint caught one unused import in the auth controller. I’m removing that now and rerunning lint."
+  },
+  {
+    "timestamp": "2026-05-13T20:06:43.686Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Static verification is clean now. I’m going to run the integration path against the dedicated `chave_auth_test` database URL used by the test file, so the database-reset logic does not target the development database."
+  },
+  {
+    "timestamp": "2026-05-13T20:06:55.334Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The integration migration cannot reach PostgreSQL on `localhost:5432`, so the database-backed suite is blocked by local infrastructure rather than code at this point. I’m checking whether Docker is available here so I can start a throwaway PostgreSQL container for the test database without touching sibling repos."
+  },
+  {
+    "timestamp": "2026-05-13T20:07:21.256Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Docker is available with approval, but host port `5432` is already allocated even though the test database URL could not connect there. I’m starting the temporary PostgreSQL container on `55432` instead and will point the integration tests at that port."
+  },
+  {
+    "timestamp": "2026-05-13T20:07:30.986Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Both fixed ports were unavailable for Docker publishing. I’m switching to a random localhost port assigned by Docker, then I’ll read that mapping and use it only for the integration run."
+  },
+  {
+    "timestamp": "2026-05-13T20:07:40.331Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The temporary PostgreSQL container is mapped to host port `55000`. I’m applying the migration there and then running the integration tests against that same test database."
+  },
+  {
+    "timestamp": "2026-05-13T20:07:52.249Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "PostgreSQL is ready inside Docker, but the sandboxed Prisma command still cannot reach the mapped localhost port. I’m rerunning the database commands outside the sandbox because this is a local network/socket access issue, not a code issue."
+  },
+  {
+    "timestamp": "2026-05-13T20:08:12.664Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The integration suite reached the application and exposed a config-validation mismatch: the documented local admin email `admin@chave.local` is useful for development but Joi’s default email validator rejects local TLDs. I’m adjusting validation to allow local development domains."
+  },
+  {
+    "timestamp": "2026-05-13T20:08:21.496Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The config fix still typechecks and lints. I’m rerunning the PostgreSQL integration suite now."
+  },
+  {
+    "timestamp": "2026-05-13T20:08:36.063Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The integration suite passed against the temporary PostgreSQL container. I’m stopping that container now so there’s no leftover local process from verification."
+  },
+  {
+    "timestamp": "2026-05-13T20:08:45.855Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "With the database-backed suite clean and the container stopped, I’m doing the final local verification pass: unit tests and production build again, then Docker image build."
+  },
+  {
+    "timestamp": "2026-05-13T20:13:04.300Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Docker built, but the build log showed Prisma warning that OpenSSL was not installed in the slim image. The prompt specifically calls out avoiding Prisma/OpenSSL runtime issues, so I’m updating the Dockerfile to install OpenSSL in both build and runtime stages and rebuilding."
+  },
+  {
+    "timestamp": "2026-05-13T20:15:04.937Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The rebuilt image no longer shows Prisma/OpenSSL warnings. Docker still reports npm audit vulnerabilities during `npm ci`; I’m checking whether those are fixable within the current dependency line before finalizing."
+  },
+  {
+    "timestamp": "2026-05-13T20:15:23.100Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "`npm audit` shows the production warnings are mostly resolved by moving the Nest packages to the current patched major line. I’m updating the Nest dependencies together so the framework packages stay aligned, then I’ll rerun the full verification set."
+  },
+  {
+    "timestamp": "2026-05-13T20:18:04.064Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The audit is clean after the Nest upgrade, but npm reported a peer mismatch from `@nestjs/jwt` still being on the Nest 10 line. I’m aligning that package too before rerunning checks."
+  },
+  {
+    "timestamp": "2026-05-13T20:18:54.726Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Production audit now reports zero vulnerabilities after the dependency alignment. I’m rerunning generation and all local checks after the framework upgrade."
+  },
+  {
+    "timestamp": "2026-05-13T20:19:17.817Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The Nest 11 upgrade tightened JWT typings: `expiresIn` needs a typed duration or number. I’m switching the JWT signing option to seconds, which preserves behavior and keeps the response TTL consistent."
+  },
+  {
+    "timestamp": "2026-05-13T20:19:27.226Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Typecheck and build are clean after the JWT typing change. I’m rerunning integration against a fresh temporary PostgreSQL container to verify Nest 11 behavior, then I’ll rebuild Docker once more."
+  },
+  {
+    "timestamp": "2026-05-13T20:20:20.025Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Post-upgrade integration tests pass and the temporary database container is stopped. I’m doing the last lint pass and Docker build with the upgraded dependency set."
+  },
+  {
+    "timestamp": "2026-05-13T20:21:26.460Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "All final checks are passing, including the Docker build with zero npm audit findings in the image. I’m doing the completion audit now: mapping the prompt requirements to the files and command evidence rather than relying only on “tests passed.”"
+  },
+  {
+    "timestamp": "2026-05-13T20:21:57.250Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The audit found profile endpoints implemented, but the integration suite did not directly exercise the `/users/me` profile flow from the acceptance criteria. I’m adding that test so the evidence matches the prompt more tightly, then I’ll rerun the suite."
+  },
+  {
+    "timestamp": "2026-05-13T20:23:32.497Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "The updated integration suite now covers profile read/update and still passes. I’m rerunning the quick unit/build checks one final time after that test edit."
+  },
+  {
+    "timestamp": "2026-05-13T20:24:37.256Z",
+    "source": "codex",
+    "git_branch": "master",
+    "git_user_name": "marcoskaiser",
+    "call_context": {
+      "cwd": "/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1"
+    },
+    "role": "assistant",
+    "content": "Implemented `chave-ms-auth` from scratch as a NestJS/TypeScript auth service. I did not reset/checkout/restore git history and did not edit sibling directories.\n\n**What Changed**\n- NestJS app with Swagger at `/docs`: [src/main.ts](/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1/src/main.ts:31)\n- Prisma/PostgreSQL auth model for users, roles, sessions, refresh tokens, reset tokens: [prisma/schema.prisma](/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1/prisma/schema.prisma:10)\n- Auth endpoints for register/login/refresh/logout/logout-all/me/introspect/password flows: [src/auth/auth.controller.ts](/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1/src/auth/auth.controller.ts:50)\n- Refresh rotation, hashed tokens, reuse detection, session revocation, password hashing: [src/auth/auth.service.ts](/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1/src/auth/auth.service.ts:111)\n- Profile/admin RBAC user endpoints: [src/users/users.controller.ts](/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1/src/users/users.controller.ts:25)\n- Docker image with migrations/seed/startup and OpenSSL for Prisma: [Dockerfile](/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1/Dockerfile:1)\n- CI workflow with install, Prisma, lint, typecheck, migrations, unit/integration tests, build, Docker build, artifacts, releases: [.github/workflows/ci.yml](/Users/marcoskaiser/Projects/PucRS/7-semestre/ES2/chave-ms-auth-g1/.github/workflows/ci.yml:43)\n\n**Verification**\nPassed:\n- `npm run prisma:generate`\n- `npm run lint`\n- `npm run typecheck`\n- `npm test` - 6 unit tests passed\n- `npm run test:integration` - 7 PostgreSQL-backed integration tests passed\n- `npm run build`\n- `npm audit --omit=dev` - 0 vulnerabilities\n- `docker build -t chave-ms-auth:verification .`\n\nI used a temporary PostgreSQL Docker container for integration tests and stopped it afterward; confirmed no `chave-ms-auth-test-postgres` container remains running.\n\nGoal marked complete. Goal tracker reports final elapsed time: 18 seconds."
+  }
+]
